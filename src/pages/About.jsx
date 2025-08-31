@@ -1,8 +1,11 @@
 const About = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="text-center mb-6 sm:mb-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About NewsApp</h1>
+      </div>
+      
       <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:p-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">About NewsApp</h1>
         
         <div className="prose prose-sm sm:prose prose-lg max-w-none">
           <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base">
