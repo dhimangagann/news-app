@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
   const location = useLocation()
@@ -14,7 +15,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-red-600 text-white shadow-lg">
+    <nav className="bg-red-600 dark:bg-red-800 text-white shadow-lg transition-colors">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -32,8 +33,8 @@ const Navbar = () => {
               to="/" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 ${
                 isActive('/') 
-                  ? 'bg-red-800 text-white' 
-                  : 'hover:bg-red-700 hover:text-red-100'
+                  ? 'bg-red-800 dark:bg-red-900 text-white' 
+                  : 'hover:bg-red-700 dark:hover:bg-red-700 hover:text-red-100'
               }`}
             >
               Home
@@ -42,8 +43,8 @@ const Navbar = () => {
               to="/technology" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 ${
                 isActive('/technology') 
-                  ? 'bg-red-800 text-white' 
-                  : 'hover:bg-red-700 hover:text-red-100'
+                  ? 'bg-red-800 dark:bg-red-900 text-white' 
+                  : 'hover:bg-red-700 dark:hover:bg-red-700 hover:text-red-100'
               }`}
             >
               Technology
@@ -52,8 +53,8 @@ const Navbar = () => {
               to="/business" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 ${
                 isActive('/business') 
-                  ? 'bg-red-800 text-white' 
-                  : 'hover:bg-red-700 hover:text-red-100'
+                  ? 'bg-red-800 dark:bg-red-900 text-white' 
+                  : 'hover:bg-red-700 dark:hover:bg-red-700 hover:text-red-100'
               }`}
             >
               Business
@@ -62,40 +63,43 @@ const Navbar = () => {
               to="/about" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 ${
                 isActive('/about') 
-                  ? 'bg-red-800 text-white' 
-                  : 'hover:bg-red-700 hover:text-red-100'
+                  ? 'bg-red-800 dark:bg-red-900 text-white' 
+                  : 'hover:bg-red-700 dark:hover:bg-red-700 hover:text-red-100'
               }`}
             >
               About
             </Link>
           </div>
 
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-white hover:text-red-200 focus:outline-none focus:text-red-200"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+          <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            <div className="md:hidden">
+              <button
+                onClick={toggleMenu}
+                className="text-white hover:text-red-200 focus:outline-none focus:text-red-200"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-red-700">
+            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-red-700 dark:border-red-600">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   isActive('/') 
-                    ? 'bg-red-800 text-white' 
-                    : 'text-red-100 hover:bg-red-700 hover:text-white'
+                    ? 'bg-red-800 dark:bg-red-900 text-white' 
+                    : 'text-red-100 hover:bg-red-700 dark:hover:bg-red-700 hover:text-white'
                 }`}
               >
                 Home
@@ -105,8 +109,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   isActive('/technology') 
-                    ? 'bg-red-800 text-white' 
-                    : 'text-red-100 hover:bg-red-700 hover:text-white'
+                    ? 'bg-red-800 dark:bg-red-900 text-white' 
+                    : 'text-red-100 hover:bg-red-700 dark:hover:bg-red-700 hover:text-white'
                 }`}
               >
                 Technology
@@ -116,8 +120,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   isActive('/business') 
-                    ? 'bg-red-800 text-white' 
-                    : 'text-red-100 hover:bg-red-700 hover:text-white'
+                    ? 'bg-red-800 dark:bg-red-900 text-white' 
+                    : 'text-red-100 hover:bg-red-700 dark:hover:bg-red-700 hover:text-white'
                 }`}
               >
                 Business
@@ -127,8 +131,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   isActive('/about') 
-                    ? 'bg-red-800 text-white' 
-                    : 'text-red-100 hover:bg-red-700 hover:text-white'
+                    ? 'bg-red-800 dark:bg-red-900 text-white' 
+                    : 'text-red-100 hover:bg-red-700 dark:hover:bg-red-700 hover:text-white'
                 }`}
               >
                 About

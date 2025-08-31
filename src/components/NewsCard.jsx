@@ -20,7 +20,7 @@ const NewsCard = ({ article }) => {
   const category = getCategoryFromSource(article.source)
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       {article.urlToImage && (
         <img 
           src={article.urlToImage} 
@@ -36,20 +36,20 @@ const NewsCard = ({ article }) => {
           <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(category)} w-fit`}>
             {category}
           </span>
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-gray-500 dark:text-gray-400">
             {new Date(article.publishedAt).toLocaleDateString()}
           </span>
         </div>
         
-        <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
           {article.title}
         </h2>
-        <p className="text-gray-600 mb-4 line-clamp-3 text-sm sm:text-base">
+        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 text-sm sm:text-base">
           {article.description}
         </p>
         
         <div className="flex justify-between items-center mb-4">
-          <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">
+          <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 truncate">
             {article.source?.name}
           </span>
         </div>
@@ -58,7 +58,7 @@ const NewsCard = ({ article }) => {
           href={article.url} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block w-full text-center bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors text-sm sm:text-base"
+          className="inline-block w-full text-center bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600 text-white px-4 py-2 rounded transition-colors text-sm sm:text-base"
         >
           Read Full Article
         </a>
