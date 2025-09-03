@@ -17,10 +17,15 @@ const Technology = () => {
         const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${API_KEY}`)
         
         if (!response.ok) {
-          throw new Error('Failed to fetch technology news')
+          throw new Error(`Failed to fetch technology news: ${response.status} ${response.statusText}`)
         }
         
         const data = await response.json()
+        
+        if (data.status === 'error') {
+          throw new Error(data.message || 'API returned an error')
+        }
+        
         setArticles(data.articles || [])
       } catch (err) {
         setError(err.message)
@@ -39,7 +44,7 @@ const Technology = () => {
   if (error) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 px-4 py-3 rounded-lg">
+        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
           <strong className="font-bold">Error!</strong>
           <span className="block sm:inline"> {error}</span>
         </div>
@@ -48,14 +53,7 @@ const Technology = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-      <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">Technology News</h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm sm:text-base">Latest updates from TechCrunch</p>
-        </div>
-      </div>
-      
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 font-serif">
       <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((article, index) => (
           <NewsCard key={index} article={article} />
@@ -65,8 +63,8 @@ const Technology = () => {
       {articles.length > 0 && <BottomLoader />}
       
       {articles.length === 0 && !loading && (
-        <div className="text-center py-12">
-          <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg">No technology news found.</p>
+        <div className="text-center py-12 font-serif">
+          <p className="text-gray-600 text-base sm:text-lg">No technology news found.</p>
         </div>
       )}
     </div>
