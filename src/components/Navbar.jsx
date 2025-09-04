@@ -14,11 +14,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-blue-600 text-white shadow-lg font-serif">
+    <nav className="bg-gray-800 text-white shadow-lg font-serif border-b border-red-600">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold flex items-center text-white hover:text-blue-100 transition-colors font-serif">
+            <Link to="/" className="text-xl font-bold flex items-center text-white hover:text-red-400 transition-colors font-serif">
               <span className="hidden sm:inline">NewsApp</span>
               <span className="sm:hidden">News</span>
             </Link>
@@ -29,8 +29,8 @@ const Navbar = () => {
               to="/" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 font-serif ${
                 isActive('/') 
-                  ? 'bg-blue-700 text-white font-medium' 
-                  : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                  ? 'bg-red-600 text-white font-medium' 
+                  : 'text-gray-300 hover:bg-red-500 hover:text-white'
               }`}
             >
               Home
@@ -39,8 +39,8 @@ const Navbar = () => {
               to="/technology" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 font-serif ${
                 isActive('/technology') 
-                  ? 'bg-blue-700 text-white font-medium' 
-                  : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                  ? 'bg-red-600 text-white font-medium' 
+                  : 'text-gray-300 hover:bg-red-500 hover:text-white'
               }`}
             >
               Technology
@@ -49,8 +49,8 @@ const Navbar = () => {
               to="/business" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 font-serif ${
                 isActive('/business') 
-                  ? 'bg-blue-700 text-white font-medium' 
-                  : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                  ? 'bg-red-600 text-white font-medium' 
+                  : 'text-gray-300 hover:bg-red-500 hover:text-white'
               }`}
             >
               Business
@@ -59,8 +59,8 @@ const Navbar = () => {
               to="/about" 
               className={`px-4 py-2 rounded-md transition-colors duration-200 font-serif ${
                 isActive('/about') 
-                  ? 'bg-blue-700 text-white font-medium' 
-                  : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                  ? 'bg-red-600 text-white font-medium' 
+                  : 'text-gray-300 hover:bg-red-500 hover:text-white'
               }`}
             >
               About
@@ -70,7 +70,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-blue-100 hover:text-white focus:outline-none focus:text-white"
+              className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -85,14 +85,14 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-blue-500">
+            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-red-600">
               <Link 
                 to="/" 
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 font-serif ${
                   isActive('/') 
-                    ? 'bg-blue-700 text-white' 
-                    : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                    ? 'bg-red-600 text-white' 
+                    : 'text-gray-300 hover:bg-red-500 hover:text-white'
                 }`}
               >
                 Home
@@ -102,8 +102,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 font-serif ${
                   isActive('/technology') 
-                    ? 'bg-blue-700 text-white' 
-                    : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                    ? 'bg-red-600 text-white' 
+                    : 'text-gray-300 hover:bg-red-500 hover:text-white'
                 }`}
               >
                 Technology
@@ -113,8 +113,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 font-serif ${
                   isActive('/business') 
-                    ? 'bg-blue-700 text-white' 
-                    : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                    ? 'bg-red-600 text-white' 
+                    : 'text-gray-300 hover:bg-red-500 hover:text-white'
                 }`}
               >
                 Business
@@ -124,8 +124,8 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 font-serif ${
                   isActive('/about') 
-                    ? 'bg-blue-700 text-white' 
-                    : 'text-blue-100 hover:bg-blue-500 hover:text-white'
+                    ? 'bg-red-600 text-white' 
+                    : 'text-gray-300 hover:bg-red-500 hover:text-white'
                 }`}
               >
                 About

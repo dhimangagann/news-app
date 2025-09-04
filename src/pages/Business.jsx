@@ -44,7 +44,7 @@ const Business = () => {
   if (error) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+        <div className="bg-red-900 border border-red-600 text-red-200 px-4 py-3 rounded-lg">
           <strong className="font-bold">Error!</strong>
           <span className="block sm:inline"> {error}</span>
         </div>
@@ -64,7 +64,7 @@ const Business = () => {
       
       {articles.length === 0 && !loading && (
         <div className="text-center py-12 font-serif">
-          <p className="text-gray-600 text-base sm:text-lg">No business news found.</p>
+          <p className="text-gray-400 text-base sm:text-lg">No business news found.</p>
         </div>
       )}
     </div>

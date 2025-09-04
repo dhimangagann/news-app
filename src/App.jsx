@@ -10,7 +10,7 @@ import About from './pages/About'
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-serif">
+    <div className="min-h-screen flex flex-col bg-gray-900 text-white font-serif">
       <Navbar />
       <main className="flex-grow">
         <Routes>
